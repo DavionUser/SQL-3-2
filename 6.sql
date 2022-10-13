@@ -1,6 +1,7 @@
-SELECT project_id, avg(salary)
+SELECT projects.name, cost, avg(salary)
 FROM developers_projects
 INNER JOIN developers ON developer_id = developers.id
-WHERE project_id = 7
-GROUP BY project_id
-ORDER BY avg(salary) ASC;
+INNER JOIN projects ON project_id = projects.id
+GROUP BY name, cost
+ORDER BY cost ASC
+LIMIT 1;
